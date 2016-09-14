@@ -1,0 +1,23 @@
+{
+  "generator-m-ionic": {
+    "answers": {
+      "appName": "fuelbuddy",
+      "appId": "com.fuelbuddy.fuelbuddy",
+      "ionicCss": false,
+      "bowerPackages": [
+        "localforage#~1.4.0"
+      ],
+      "platforms": [
+        "android"
+      ],
+      "plugins": [
+        "cordova-plugin-device",
+        "cordova-plugin-splashscreen"
+      ],
+      "appModule": "fuelbuddy",
+      "ecosystems": [
+        "ionic-cloud"
+      ]
+    }
+  }
+}
