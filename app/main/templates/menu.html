@@ -25,15 +25,26 @@
   <ion-side-menu side="left">
 
     <!-- menu header -->
-    <ion-header-bar class="bar-assertive">
+    <!-- <ion-header-bar class="bar-assertive">
       <h1 class="title">Nav</h1>
-    </ion-header-bar>
+    </ion-header-bar> -->
 
     <!-- menu content -->
     <ion-content>
+      <div class="row">
+        <div class="col padding">
+          <h1>fuelbuddy</h1>
+        </div>
+      </div>
       <ion-list>
+        <ion-item menu-close ui-sref="main.dashboard">
+          Dashboard
+        </ion-item>
+        <ion-item menu-close ui-sref="main.buyDiesel">
+          Buy Diesel
+        </ion-item>
         <ion-item menu-close ui-sref="main.list">
-          List
+          Buy Gas
         </ion-item>
         <ion-item menu-close ui-sref="main.debug">
           Debug
