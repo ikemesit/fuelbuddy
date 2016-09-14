@@ -65,5 +65,8 @@
         "proxyMapTo": "https://echo.getpostman.com"
       }
     ]
+  },
+  "dependencies": {
+    "@ionic/cloud": "^0.9.0"
   }
 }

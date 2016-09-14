@@ -32,3 +32,6 @@
 # webstorm
 /.idea/workspace.xml
 /.idea/libraries
+
+# ionic cloud
+!bower_components/ionic.cloud.min.js
