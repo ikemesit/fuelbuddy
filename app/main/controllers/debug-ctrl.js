@@ -33,20 +33,20 @@ angular.module('main')
   this.grade();
 
   // Proxy
-  this.proxyState = 'ready';
-  this.proxyRequestUrl = Config.ENV.SOME_OTHER_URL + '/get';
-
-  this.proxyTest = function () {
-    this.proxyState = '...';
-
-    $http.get(this.proxyRequestUrl)
-    .then(function (response) {
-      $log.log(response);
-      this.proxyState = 'success (result printed to browser console)';
-    }.bind(this))
-    .then($timeout(function () {
-      this.proxyState = 'ready';
-    }.bind(this), 6000));
-  };
+  // this.proxyState = 'ready';
+  // this.proxyRequestUrl = Config.ENV.SOME_OTHER_URL + '/get';
+  //
+  // this.proxyTest = function () {
+  //   this.proxyState = '...';
+  //
+  //   $http.get(this.proxyRequestUrl)
+  //   .then(function (response) {
+  //     $log.log(response);
+  //     this.proxyState = 'success (result printed to browser console)';
+  //   }.bind(this))
+  //   .then($timeout(function () {
+  //     this.proxyState = 'ready';
+  //   }.bind(this), 6000));
+  // };
 
 });

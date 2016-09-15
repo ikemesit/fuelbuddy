@@ -26,31 +26,48 @@
 
     <!-- menu header -->
     <!-- <ion-header-bar class="bar-assertive">
-      <h1 class="title">Nav</h1>
+      <h1 class="title">Fuelbuddy</h1>
     </ion-header-bar> -->
 
     <!-- menu content -->
-    <ion-content>
-      <div class="row">
-        <div class="col padding">
-          <h1>fuelbuddy</h1>
-        </div>
-      </div>
-      <ion-list>
+    <!-- <ion-content>
+      <ion-list class="sidebar-menu-list">
         <ion-item menu-close ui-sref="main.dashboard">
-          Dashboard
+          <i class="icon-left ion-android-home sidebar-menu-icon-left"></i> Dashboard
         </ion-item>
-        <ion-item menu-close ui-sref="main.buyDiesel">
-          Buy Diesel
+        <ion-item menu-close ui-sref="main.diesel">
+          <i class="icon-left ion-android-add sidebar-menu-icon-left"></i> Buy Diesel
         </ion-item>
-        <ion-item menu-close ui-sref="main.list">
-          Buy Gas
+        <ion-item menu-close ui-sref="main.gas">
+          <i class="icon-left ion-android-add sidebar-menu-icon-left"></i> Buy Gas
         </ion-item>
         <ion-item menu-close ui-sref="main.debug">
           Debug
         </ion-item>
       </ion-list>
-    </ion-content>
+    </ion-content> -->
+    <div class="row">
+      <div class="col padding">
+        <h1>Fuelbuddy</h1>
+      </div>
+    </div>
+    <div class="list">
+      <a class="item item-icon-left menu-close" ui-sref="main.dashboard">
+        <i class="icon ion-android-home"></i> Dashboard
+      </a>
+      <a class="item item-icon-left menu-close" ui-sref="main.diesel">
+        <i class="icon ion-android-add"></i> Buy Diesel
+      </a>
+      <a class="item item-icon-left menu-close" ui-sref="main.gas">
+        <i class="icon ion-android-add"></i> Buy Gas
+      </a>
+      <a class="item item-icon-left menu-close" ui-sref="main.debug">
+        <i class="icon ion-android-add"></i> Debug
+      </a>
+      <a class="item item-icon-left menu-close" ui-sref="main.gas">
+        <i class="icon ion-gear-b"></i> Settings
+      </a>
+    </div>
 
   </ion-side-menu>
 

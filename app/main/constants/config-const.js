@@ -1,19 +1,12 @@
 'use strict';
 angular.module('main')
-.constant('Config', {
+.constant('Config', function ($http) {
+  $http.get('env-dev.json').then(function (response) {
+    this.env = response.data;
+  });
 
-  // gulp environment: injects environment vars
-  ENV: {
-    /*inject-env*/
-    'SERVER_URL': 'https://DEVSERVER/api',
-    'SOME_OTHER_URL': '/postman-proxy'
-    /*endinject*/
-  },
-
-  // gulp build-vars: injects build vars
-  BUILD: {
-    /*inject-build*/
-    /*endinject*/
-  }
-
+  return {
+    'ENV': this.env,
+    'BUILD': ''
+  };
 });

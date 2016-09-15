@@ -21,5 +21,30 @@ $ionicons-font-path: "../assets/fonts" !default;
 // Include all of Ionic
 @import "../../bower_components/ionic/scss/ionic";
 
+// body{
+//   font-size: 1.2em;
+// }
 
+.sidebar-menu-list{
+  & a{
+    font-size: 1.2em;
+    padding: 20px auto;
+  }
+  & .sidebar-menu-icon-left{
+    margin-right: 20px;
+    font-size: 1.5em;
+  }
+}
 
+span.input-label{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+span.input-label + .item-radio{
+  margin-top: 10px;
+}
+
+.product-order-list{
+  margin-bottom: 0;
+}

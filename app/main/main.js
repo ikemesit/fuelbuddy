@@ -33,8 +33,8 @@ angular.module('main', [
         }
       }
     })
-    .state('main.buyDiesel', {
-      url: '/buy/diesel',
+    .state('main.diesel', {
+      url: '/diesel',
       views: {
         'pageContent': {
           templateUrl: 'main/templates/buy-diesel.html',
@@ -42,11 +42,11 @@ angular.module('main', [
         }
       }
     })
-    .state('main.listDetail', {
-      url: '/list/detail',
+    .state('main.gas', {
+      url: '/gas',
       views: {
         'pageContent': {
-          templateUrl: 'main/templates/list-detail.html',
+          templateUrl: 'main/templates/buy-gas.html',
           // controller: '<someCtrl> as ctrl'
         }
       }
