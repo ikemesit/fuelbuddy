@@ -1,12 +1,8 @@
 'use strict';
 angular.module('main')
-.constant('Config', function ($http) {
-  $http.get('env-dev.json').then(function (response) {
-    this.env = response.data;
-  });
-
+.constant('Config', function () {
   return {
-    'ENV': this.env,
+    'ENV': '',
     'BUILD': ''
   };
 });

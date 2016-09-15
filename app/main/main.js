@@ -51,6 +51,15 @@ angular.module('main', [
         }
       }
     })
+    .state('main.settings', {
+      url: '/settings',
+      views: {
+        'pageContent': {
+          templateUrl: 'main/templates/settings.html',
+          // controller: '<someCtrl> as ctrl'
+        }
+      }
+    })
     .state('main.debug', {
       url: '/debug',
       views: {
