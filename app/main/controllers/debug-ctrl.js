@@ -1,13 +1,13 @@
 'use strict';
 angular.module('main')
-.controller('DebugCtrl', function ($log, $http, $timeout, Main, Config, $cordovaDevice) {
+.controller('DebugCtrl', function ($log, $http, $timeout, Main, $cordovaDevice) {
 
   $log.log('Hello from your Controller: DebugCtrl in module main:. This is your controller:', this);
 
   // bind data from services
   this.someData = Main.someData;
-  this.ENV = Config.ENV;
-  this.BUILD = Config.BUILD;
+  // this.ENV = Config.ENV;
+  // this.BUILD = Config.BUILD;
   // get device info
   ionic.Platform.ready(function () {
     if (ionic.Platform.isWebView()) {

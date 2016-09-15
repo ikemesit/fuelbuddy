@@ -5,7 +5,7 @@
 
     <!-- header bar -->
     <!-- the nav bar will be updated as we navigate between views -->
-    <ion-nav-bar class="bar-assertive">
+    <ion-nav-bar class="bar-light">
       <!-- back button, shown if applicable -->
       <ion-nav-back-button>
       </ion-nav-back-button>
@@ -23,32 +23,11 @@
 
   <!-- SIDEMENU -->
   <ion-side-menu side="left">
-
-    <!-- menu header -->
-    <!-- <ion-header-bar class="bar-assertive">
-      <h1 class="title">Fuelbuddy</h1>
-    </ion-header-bar> -->
-
-    <!-- menu content -->
-    <!-- <ion-content>
-      <ion-list class="sidebar-menu-list">
-        <ion-item menu-close ui-sref="main.dashboard">
-          <i class="icon-left ion-android-home sidebar-menu-icon-left"></i> Dashboard
-        </ion-item>
-        <ion-item menu-close ui-sref="main.diesel">
-          <i class="icon-left ion-android-add sidebar-menu-icon-left"></i> Buy Diesel
-        </ion-item>
-        <ion-item menu-close ui-sref="main.gas">
-          <i class="icon-left ion-android-add sidebar-menu-icon-left"></i> Buy Gas
-        </ion-item>
-        <ion-item menu-close ui-sref="main.debug">
-          Debug
-        </ion-item>
-      </ion-list>
-    </ion-content> -->
-    <div class="row">
+    <div class="row row-top">
       <div class="col padding">
-        <h1>Fuelbuddy</h1>
+        <div class="sidebar-menu-top-panel">
+          <h1>Fuelbuddy</h1>
+        </div>
       </div>
     </div>
     <div class="list">
@@ -68,6 +47,15 @@
         <i class="icon ion-gear-b"></i> Settings
       </a>
     </div>
+
+    <div class="bar bar-footer bar-light padding sidebar-menu-footer">
+      <a class="button icon-left ion-android-unlock button-clear button-dark">Signed In as Whoever</a>
+    </div>
+    <!-- <div class="row row-bottom">
+      <div class="col">
+        Signed In
+      </div>
+    </div> -->
 
   </ion-side-menu>
 

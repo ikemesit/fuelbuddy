@@ -21,24 +21,34 @@ $ionicons-font-path: "../assets/fonts" !default;
 // Include all of Ionic
 @import "../../bower_components/ionic/scss/ionic";
 
-// body{
-//   font-size: 1.2em;
+
+
+// .sidebar-menu-list{
+//   & a{
+//     font-size: 1.2em;
+//     padding: 20px auto;
+//   }
+//   & .sidebar-menu-icon-left{
+//     margin-right: 20px;
+//     font-size: 1.5em;
+//   }
 // }
 
-.sidebar-menu-list{
-  & a{
-    font-size: 1.2em;
-    padding: 20px auto;
-  }
-  & .sidebar-menu-icon-left{
+.sidebar-menu-top-panel{
+  display: block;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.sidebar-menu-footer{
+  height: 10vh;
+  & a:before{
     margin-right: 20px;
-    font-size: 1.5em;
+    vertical-align: top;
   }
 }
 
 span.input-label{
   font-weight: bold;
-  // font-size: 1.2em;
 }
 
 span.input-label + .item-radio{
