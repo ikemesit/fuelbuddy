@@ -1,0 +1,34 @@
+<ion-modal-view view-title="Sign Up" hide-nav-bar="true">
+  <!-- do you want padding? -->
+  <ion-content class="padding">
+
+    <!-- content goes here -->
+    <div class="signup-screen-header padding-top padding-bottom">
+      <h1>Create your Account</h1>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <input name="name" type="text" placeholder="Your Name" ng-model="login.userSignUpCredentials.name">
+      </label>
+      <label class="item item-input">
+        <input name="email" type="email" placeholder="E-Mail" ng-model="login.userSignUpCredentials.email">
+      </label>
+      <label class="item item-input">
+        <input name="password" type="password" placeholder="Password" ng-model="login.userSignUpCredentials.password">
+      </label>
+      <label class="item item-input">
+        <input name="vpassword" type="password" placeholder="Verify Password">
+      </label>
+      <label class="item item-input">
+        <input name="Phone" type="text" placeholder="Phone" ng-model="login.userSignUpCredentials.phone">
+      </label>
+    </div>
+    <button class="button button-block button-positive" ng-click="login.signUp()">
+      Sign up
+    </button>
+    <button class="button button-block button-assertive" ng-click="login.cancel()">
+      Cancel
+    </button>
+
+  </ion-content>
+</ion-modal-view>

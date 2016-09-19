@@ -1,7 +1,13 @@
 'use strict';
 angular.module('main')
-.controller('MenuCtrl', function ($log) {
+.controller('MenuCtrl', function ($log, $state, currentAuth, AuthService) {
+  var vm = this;
+  vm.signOut = signOutFunc;
+  $log.log(currentAuth);
 
-  $log.log('Hello from your Controller: MenuCtrl in module main:. This is your controller:', this);
+  function signOutFunc () {
+    AuthService.firebaseAuthObj.$signOut();
+    $state.go('login');
+  }
 
 });

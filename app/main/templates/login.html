@@ -1,0 +1,27 @@
+<ion-view view-title="Login" hide-nav-bar="true">
+  <!-- do you want padding? -->
+  <ion-content class="padding">
+
+    <!-- content goes here -->
+    <div class="login-screen-logo">
+      <h1>Fuelbuddy</h1>
+    </div>
+    <div class="list">
+      <label class="item item-input">
+        <input name="email" type="email" placeholder="E-Mail" ng-model="login.user.email">
+      </label>
+      <label class="item item-input">
+        <input name="password" type="password" placeholder="Password" ng-model="login.user.password">
+      </label>
+    </div>
+    <button class="button button-block button-positive" ng-click="login.showSignUpForm()">
+      Sign up
+    </button>
+    <button class="button button-block button-balanced"
+      ng-click="login.signIn()">
+      Sign in
+    </button>
+    <!-- <span ng-hide="login.validationComplete == true">Your Email appears to be wrong</span> -->
+
+  </ion-content>
+</ion-view>
