@@ -1,6 +1,6 @@
-<ion-view view-title="Login" hide-nav-bar="true">
+<ion-view view-title="Login" hide-nav-bar="true" cache-view="false">
   <!-- do you want padding? -->
-  <ion-content class="padding">
+  <ion-content class="padding" scroll="false">
 
     <!-- content goes here -->
     <div class="login-screen-logo">
@@ -8,20 +8,21 @@
     </div>
     <div class="list">
       <label class="item item-input">
-        <input name="email" type="email" placeholder="E-Mail" ng-model="login.user.email">
+        <input name="email" type="email" placeholder="E-Mail" ng-model="login.user.email" ng-keyup="login.echo(login.user.email);">
       </label>
       <label class="item item-input">
         <input name="password" type="password" placeholder="Password" ng-model="login.user.password">
       </label>
     </div>
-    <button class="button button-block button-positive" ng-click="login.showSignUpForm()">
-      Sign up
-    </button>
+    <span ng-hide="login.validationComplete == true">Your Email appears to be wrong</span>
     <button class="button button-block button-balanced"
       ng-click="login.signIn()">
       Sign in
     </button>
-    <!-- <span ng-hide="login.validationComplete == true">Your Email appears to be wrong</span> -->
+    <button class="button button-block button-positive" ng-click="login.showSignUpForm()">
+      Sign up
+    </button>
+    
 
   </ion-content>
 </ion-view>

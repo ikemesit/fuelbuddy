@@ -2,6 +2,8 @@
 angular.module('main')
 .controller('LoginCtrl', function ($scope, $log, $timeout, $state, $ionicModal, AuthService, LoadingService, toastr) {
   var vm = this;
+
+  //login models
   vm.user = {
     email: null,
     password: null
@@ -11,11 +13,16 @@ angular.module('main')
     email: null,
     password: null
   };
+
+  //login methods
   vm.signIn = signInFunc;
   vm.signUp = signUpFunc;
   vm.cancel = cancel;
   vm.showSignUpForm = showSignUpFormFunc;
   vm.validateEmail = validateEmail;
+  vm.echo = echo;
+
+  //Login switches
   vm.validationComplete = false;
 
   // Initialize $ionicModal Service
@@ -30,6 +37,10 @@ angular.module('main')
   $scope.$on('$destroy', function () {
     $scope.modal.remove();
   });
+
+  function echo(val){
+    $log.info(val);
+  }
 
   function validateEmail (email) {
     var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
