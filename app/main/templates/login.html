@@ -6,15 +6,19 @@
     <div class="login-screen-logo">
       <h1>Fuelbuddy</h1>
     </div>
+    <span class="login-error" ng-show="login.errorMessage != null" ng-bind="login.errorMessage"></span>
     <div class="list">
       <label class="item item-input">
-        <input name="email" type="email" placeholder="E-Mail" ng-model="login.user.email" ng-keyup="login.echo(login.user.email);">
+        <input name="email" type="email" placeholder="E-Mail" 
+          ng-model="login.user.email" 
+          ng-keyup="login.validateEmail(login.user.email);"
+          ng-keydown= "login.clearErrorState();">
+        <i class="icon ion-android-checkmark-circle placeholder-icon padding-right login-input-ok" ng-show="login.emailValidationOk == true"></i>
       </label>
       <label class="item item-input">
         <input name="password" type="password" placeholder="Password" ng-model="login.user.password">
       </label>
     </div>
-    <span ng-hide="login.validationComplete == true">Your Email appears to be wrong</span>
     <button class="button button-block button-balanced"
       ng-click="login.signIn()">
       Sign in

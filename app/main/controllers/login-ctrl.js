@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-.controller('LoginCtrl', function ($scope, $log, $timeout, $state, $ionicModal, AuthService, LoadingService, toastr) {
+.controller('LoginCtrl', function ($scope, $log, $timeout, $state, $ionicModal, AuthService, LoadingService) {
   var vm = this;
 
   //login models
@@ -11,7 +11,9 @@ angular.module('main')
   vm.userSignUpCredentials = {
     name: null,
     email: null,
-    password: null
+    password: null,
+    verifyPassword: null,
+    phone: null
   };
 
   //login methods
@@ -20,10 +22,13 @@ angular.module('main')
   vm.cancel = cancel;
   vm.showSignUpForm = showSignUpFormFunc;
   vm.validateEmail = validateEmail;
-  vm.echo = echo;
+  vm.clearErrorState = clearErrorState;
+  vm.verifyPassword = verifyPassword;
 
-  //Login switches
-  vm.validationComplete = false;
+  //State models
+  vm.emailValidationOk = false;
+  vm.errorMessage = null;
+  vm.passwordVerified = false;
 
   // Initialize $ionicModal Service
   $ionicModal.fromTemplateUrl('main/templates/signUp.html', {
@@ -38,24 +43,17 @@ angular.module('main')
     $scope.modal.remove();
   });
 
-  function echo(val){
-    $log.info(val);
-  }
-
   function validateEmail (email) {
     var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (pattern.test(email) === false) {
-      vm.validationComplete = false;
-      vm.errorMessage = 'Your Email Appears to be incomplete!';
-      return false;
+      vm.emailValidationOk = false;
     } else {
-      vm.validationComplete = true;
-      $log.log('Email is ok!');
-      return true;
+      vm.emailValidationOk = true;
     }
   }
 
   function showSignUpFormFunc () {
+    vm.emailValidationOk = false;
     $scope.modal.show();
   }
 
@@ -63,8 +61,9 @@ angular.module('main')
     LoadingService.showLoadingState();
     if (vm.userSignUpCredentials.name !== null &&
         vm.userSignUpCredentials.email !== null &&
-        vm.userSignUpCredentials.password !== null) {
-      if (vm.validationComplete !== false ) {
+        vm.userSignUpCredentials.password !== null &&
+        vm.userSignUpCredentials.phone !== null) {
+      if (vm.emailValidationOk !== false && vm.passwordVerified !== false ) {
         AuthService
           .firebaseAuthObj
           .$createUserWithEmailAndPassword(vm.userSignUpCredentials.email, vm.userSignUpCredentials.password)
@@ -82,6 +81,9 @@ angular.module('main')
     }
   }
 
+  // Signs in user using Firebase's auth API,
+  // redirects user to dashboard (using state resolves => main.js)
+  // and catches error codes, if ANY.
   function signInFunc () {
     if (vm.user.email !== null && vm.user.password !== null) {
       LoadingService.showLoadingState();
@@ -94,14 +96,38 @@ angular.module('main')
           LoadingService.hideLoadingState();
         })
         .catch(function (error) {
-          // $log.log('Error :' + error);
-          toastr.error(error.message);
+          switch (error.code) {
+            case 'auth/user-not-found':
+              vm.errorMessage = 'User does not exist';
+              break;
+            case 'auth/wrong-password':
+              vm.errorMessage = 'Wrong Password';
+              break;
+          }
           LoadingService.hideLoadingState();
         });
     }
   }
 
+  // Signup Cancel
   function cancel () {
     $scope.modal.hide();
+    clearErrorState();
+    vm.emailValidationOk = false;
+  }
+
+  // Resets Error Message
+  function clearErrorState () {
+    vm.errorMessage = null;
+  }
+
+  // Verifies Password
+  function verifyPassword () {
+    // $log.info('verification active!');
+    if (vm.userSignUpCredentials.password === vm.userSignUpCredentials.verifyPassword) {
+      vm.passwordVerified = true;
+    } else {
+      vm.passwordVerified = false;
+    }
   }
 });

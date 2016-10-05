@@ -5,41 +5,85 @@
   <ion-content class="has-subheader">
 
     <!-- content goes here -->
-    <div class="list product-order-list">
+    <div class="list product-order-form">
       <label class="item item-input padding">
         <span class="input-label">Amount:</span>
-        <input type="text" placeholder="Amount in litres">
+        <input type="text" placeholder="Amount in litres" ng-model="dieselctrl.order.amount">
       </label>
       <label class="item item-input padding">
         <span class="input-label">Contact Number:</span>
-        <input type="text">
+        <input type="text" ng-model="dieselctrl.order.contact">
       </label>
       <label class="item item-input padding item-stacked-label">
         <span class="input-label">Delivery Address:</span>
-        <textarea rows="4" cols="40"></textarea>
+        <input type="text" class="textarea" ng-model="dieselctrl.order.address">
       </label>
       <label class="item item-input padding item-stacked-label">
         <span class="input-label">Nearest landmark:</span>
-        <textarea rows="4" cols="40"></textarea>
+        <input type="text" class="textarea" ng-model="dieselctrl.order.landmark">
       </label>
       <label class="item item-input padding item-stacked-label">
         <span class="input-label">Payment Option:</span>
-        <ion-radio ng-model="dieselOrder.paymentOption" ng-value="'cash'">Cash</ion-radio>
-        <ion-radio ng-model="dieselOrder.paymentOption" ng-value="'in-app'">In-App</ion-radio>
+        <ion-radio ng-model="dieselctrl.order.paymentOption" ng-value="'cash'">Cash</ion-radio>
+        <ion-radio ng-model="dieselctrl.order.paymentOption" ng-value="'in-app'">In-App</ion-radio>
       </label>
     </div>
 
     <div class="row">
       <div class="col">
-        <button class="button button-block button-balanced order-payment-button">
-          Order Now
-        </button>
-        <button class="button button-block button-assertive order-cancellation-button">
-          Cancel Order
+        <button class="button button-block button-balanced order-payment-button" ng-click="dieselctrl.getOrderDetails();">
+          Next
         </button>
       </div>
     </div>
 
 
   </ion-content>
+
+  <script id="confirm-order.html" type="text/ng-template">
+    <ion-modal-view>
+      <ion-header-bar>
+        <h1 class="title">Confirm Order</h1>
+      </ion-header-bar>
+      <ion-content>
+        <!-- content goes here -->
+        <div class="list card confirm-order">
+          <div class="item item-divider">
+            <h4>Details for Order #BGGH908 Are:</h4>
+          </div>
+          <a href="#" class="item">
+            Amount: {{ dieselctrl.order.amount }}
+          </a>
+
+          <a href="#" class="item">
+            Contact Number: {{ dieselctrl.order.contact }}
+          </a>
+
+          <a href="#" class="item">
+            Delivery Address: {{ dieselctrl.order.address }}
+          </a>
+
+          <a href="#" class="item">
+            Nearest Landmark: {{ dieselctrl.order.landmark }}
+          </a>
+
+          <a href="#" class="item">
+            Payment Option: {{ dieselctrl.order.paymentOption }}
+          </a>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <button class="button button-block button-balanced order-payment-button" ng-click="dieselctrl.placeOrder()">
+              Confirm Order
+            </button>
+            <button class="button button-block button-assertive order-cancellation-button" ng-click="dieselctrl.cancelOrder()">
+              Cancel Order
+            </button>
+          </div>
+        </div>
+
+      </ion-content>
+    </ion-modal-view>
+  </script>
 </ion-view>

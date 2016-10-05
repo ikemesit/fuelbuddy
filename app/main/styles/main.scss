@@ -53,6 +53,31 @@ $ionicons-font-path: "../assets/fonts" !default;
   }
 }
 
+.login-error{
+  display: block;
+  background-color: red;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+i.login-input-ok{
+  color: green;
+  font-size: 1.2em;
+}
+
+// Sign Up Screen Styles
+.signup-screen-header{
+  & h2{
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+}
+
+// Sidebar Menu Styles
 .sidebar-menu-top-panel{
   display: block;
   padding-top: 50px;
@@ -76,4 +101,27 @@ span.input-label + .item-radio{
 
 .product-order-list{
   margin-bottom: 0;
+}
+
+// Dashboard Styles
+span.lead{
+  font-size: 2.5em;
+}
+.purchase-history{
+  & i.icon{
+    font-size: 0.95em;
+  }
+  & i.ion-android-done{
+    color: green;
+  }
+  & i.ion-android-close{
+    color: red;
+  }
+}
+
+// Product Order Form
+.product-order-form{
+  & .textarea{
+    // min-height: 150px;
+  }
 }

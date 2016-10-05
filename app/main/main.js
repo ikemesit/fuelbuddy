@@ -66,7 +66,7 @@ angular.module('main', [
       views: {
         'pageContent': {
           templateUrl: 'main/templates/buy-diesel.html',
-          // controller: '<someCtrl> as ctrl'
+          controller: 'DieselOrderController as dieselctrl'
         }
       }
     })

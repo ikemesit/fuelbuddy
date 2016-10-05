@@ -4,20 +4,27 @@
 
     <!-- content goes here -->
     <div class="signup-screen-header padding-top padding-bottom">
-      <h1>Create your Account</h1>
+      <h2>Create your Account</h2>
     </div>
     <div class="list">
       <label class="item item-input">
         <input name="name" type="text" placeholder="Your Name" ng-model="login.userSignUpCredentials.name">
       </label>
       <label class="item item-input">
-        <input name="email" type="email" placeholder="E-Mail" ng-model="login.userSignUpCredentials.email">
+        <input name="email" type="email" placeholder="E-Mail" 
+        ng-model="login.userSignUpCredentials.email"
+        ng-keyup="login.validateEmail(login.userSignUpCredentials.email);">
+        <i class="icon ion-android-checkmark-circle placeholder-icon padding-right login-input-ok" ng-show="login.emailValidationOk == true"></i>
       </label>
       <label class="item item-input">
         <input name="password" type="password" placeholder="Password" ng-model="login.userSignUpCredentials.password">
+        <i class="icon ion-android-checkmark-circle placeholder-icon padding-right login-input-ok" ng-show="login.passwordVerified == true"></i>
       </label>
       <label class="item item-input">
-        <input name="vpassword" type="password" placeholder="Verify Password">
+        <input name="vpassword" type="password" placeholder="Verify Password" 
+          ng-model="login.userSignUpCredentials.verifyPassword" 
+          ng-keyup="login.verifyPassword();">
+        <i class="icon ion-android-checkmark-circle placeholder-icon padding-right login-input-ok" ng-show="login.passwordVerified == true"></i>
       </label>
       <label class="item item-input">
         <input name="Phone" type="text" placeholder="Phone" ng-model="login.userSignUpCredentials.phone">

@@ -3,6 +3,9 @@
   "env": {
     "node": true
   },
+  "globals": {
+    "firebase": true
+  },
   "rules": {
     // overrides from 'recommended'
     "comma-dangle": 0,
